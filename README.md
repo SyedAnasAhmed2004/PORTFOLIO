@@ -13,7 +13,7 @@ A 3D portfolio with an AI chatbot (RAG, in progress) and a conversational agent 
 
 | Route      | Page                                         |
 | ---------- | -------------------------------------------- |
-| `/`        | Profile — hero, about, skills, experience, projects |
+| `/`        | Profile — hero, about, skills, experience, projects, education |
 | `/chat`    | Portfolio chatbot (RAG backend coming)        |
 | `/agent`   | Reserved for the conversational AI agent      |
 | `/contact` | Contact form (emails via Resend)              |
@@ -90,9 +90,8 @@ cd frontend; npm run typecheck; npm run lint; npm run build
 
 ## Editing your content
 
-Everything personal (name, summary, skills, experience, projects, links) is in
-[`frontend/src/data/profile.ts`](frontend/src/data/profile.ts). Experience, projects and
-stats are currently **sample content**. Replace them with your own.
+Everything personal (name, summary, skills, experience, projects, education, links) is in
+[`frontend/src/data/profile.ts`](frontend/src/data/profile.ts).
 
 ## Deploying to Vercel (free tier)
 

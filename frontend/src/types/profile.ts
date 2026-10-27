@@ -28,6 +28,13 @@ export interface Project {
   href?: string
 }
 
+export interface Education {
+  institution: string
+  credential: string
+  period: string
+  details: string[]
+}
+
 export interface Profile {
   name: string
   role: string
@@ -43,4 +50,5 @@ export interface Profile {
   skills: SkillGroup[]
   experience: Experience[]
   projects: Project[]
+  education: Education[]
 }
