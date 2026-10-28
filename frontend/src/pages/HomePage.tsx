@@ -1,23 +1,24 @@
-import { usePageTitle } from '@/hooks/usePageTitle'
 import { AboutSection } from '@/features/home/sections/AboutSection'
 import { CallToActionSection } from '@/features/home/sections/CallToActionSection'
-import { EducationSection } from '@/features/home/sections/EducationSection'
-import { ExperienceSection } from '@/features/home/sections/ExperienceSection'
 import { HeroSection } from '@/features/home/sections/HeroSection'
-import { ProjectsSection } from '@/features/home/sections/ProjectsSection'
-import { SkillsSection } from '@/features/home/sections/SkillsSection'
+import { ServicesSection } from '@/features/home/sections/ServicesSection'
+import { TechStackSection } from '@/features/home/sections/TechStackSection'
+import { TimelineSection } from '@/features/home/sections/TimelineSection'
+import { WorkSection } from '@/features/home/sections/WorkSection'
+import { usePageTitle } from '@/hooks/usePageTitle'
 
 export default function HomePage() {
   usePageTitle()
 
   return (
     <>
+      {/* The first three sections are one viewport tall each: the robot's scroll path assumes it. */}
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <EducationSection />
+      <ServicesSection />
+      <TimelineSection />
+      <WorkSection />
+      <TechStackSection />
       <CallToActionSection />
     </>
   )

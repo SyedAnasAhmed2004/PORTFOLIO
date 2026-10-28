@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button'
 import { InputField, TextAreaField } from '@/components/ui/FormField'
+import { Panel } from '@/components/ui/Panel'
 import { cn } from '@/lib/cn'
 
 import { useContactForm } from '../hooks/useContactForm'
@@ -9,14 +10,14 @@ export function ContactForm() {
   const isSubmitting = status === 'submitting'
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="glass flex flex-col gap-5 rounded-3xl p-6 sm:p-8">
+    <form onSubmit={handleSubmit} noValidate>
+      <Panel className="flex flex-col gap-5 p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <InputField
           id="name"
           name="name"
           label="Name"
           autoComplete="name"
-          placeholder="Ada Lovelace"
           value={values.name}
           onChange={handleChange}
           error={errors.name}
@@ -27,7 +28,6 @@ export function ContactForm() {
           type="email"
           label="Email"
           autoComplete="email"
-          placeholder="ada@example.com"
           value={values.email}
           onChange={handleChange}
           error={errors.email}
@@ -36,8 +36,7 @@ export function ContactForm() {
       <InputField
         id="subject"
         name="subject"
-        label="Subject"
-        placeholder="Project, role, collaboration…"
+        label="Subject (optional)"
         value={values.subject}
         onChange={handleChange}
         error={errors.subject}
@@ -47,7 +46,7 @@ export function ContactForm() {
         name="message"
         label="Message"
         rows={6}
-        placeholder="Tell me a bit about what you have in mind."
+        placeholder="What would you like to talk about?"
         value={values.message}
         onChange={handleChange}
         error={errors.message}
@@ -66,16 +65,19 @@ export function ContactForm() {
       />
 
       <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p
-          role="status"
-          className={cn('text-sm', status === 'error' ? 'text-danger' : 'text-accent')}
-        >
+        <p role="status" className={cn('text-sm', status === 'error' ? 'text-danger' : 'text-fg')}>
           {(status === 'success' || status === 'error') && feedback}
         </p>
-        <Button type="submit" disabled={isSubmitting} className="sm:min-w-40">
-          {isSubmitting ? 'Sending…' : 'Send message →'}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          robotAttention
+          className="sm:min-w-44"
+        >
+          {isSubmitting ? 'Sending…' : 'Send message'}
         </Button>
       </div>
+      </Panel>
     </form>
   )
 }

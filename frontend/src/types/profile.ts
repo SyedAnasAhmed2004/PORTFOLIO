@@ -1,54 +1,49 @@
 export interface SocialLink {
-  label: string
+  label: 'GitHub' | 'LinkedIn' | 'Email'
   href: string
 }
 
-export interface Stat {
-  value: string
-  label: string
+/** A "What I do" card. */
+export interface Service {
+  title: string
+  tagline: string
+  description: string
+  tools: string[]
 }
 
-export interface SkillGroup {
-  category: string
-  items: string[]
+/** One row of the career & education timeline, newest first. */
+export interface TimelineEntry {
+  year: string
+  title: string
+  organization: string
+  description: string
 }
 
-export interface Experience {
-  role: string
-  company: string
-  period: string
-  summary: string
-  highlights: string[]
-}
+export type ProjectVisual = 'market' | 'chess' | 'traffic'
 
 export interface Project {
   title: string
+  category: string
   summary: string
-  tags: string[]
+  tools: string[]
+  /** Which built-in illustration to show for the project. */
+  visual: ProjectVisual
   href?: string
-}
-
-export interface Education {
-  institution: string
-  credential: string
-  period: string
-  details: string[]
 }
 
 export interface Profile {
   name: string
-  role: string
+  /** Hero tagline lines, e.g. ["AI engineer &", "generative AI developer"]. */
+  roles: [string, string]
   location: string
   email: string
-  headline: string
-  /** Words in the headline rendered with the accent serif style. */
-  headlineHighlights: string[]
-  summary: string
+  about: string
   availability: string
   socials: SocialLink[]
-  stats: Stat[]
-  skills: SkillGroup[]
-  experience: Experience[]
+  /** Path or URL of a downloadable resume; the link is hidden while unset. */
+  resumeUrl?: string
+  services: Service[]
+  timeline: TimelineEntry[]
   projects: Project[]
-  education: Education[]
+  techStack: string[]
 }

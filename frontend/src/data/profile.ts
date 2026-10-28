@@ -3,115 +3,119 @@ import type { Profile } from '@/types/profile'
 /** Single source of truth for all personal content shown on the site (from resume & cover letter). */
 export const profile: Profile = {
   name: 'Syed Anas Ahmed',
-  role: 'AI Engineer',
+  roles: ['AI engineer &', 'generative AI developer'],
   location: 'Karachi, Pakistan',
   email: 'anas.ahd85@gmail.com',
-  headline: 'Building practical AI that solves real-world problems.',
-  headlineHighlights: ['practical', 'real-world'],
-  summary:
-    'AI Engineer and Computer Science (Artificial Intelligence) graduate from NED University of Engineering & Technology, with hands-on experience in generative AI, large language models and AI-powered application development. I am particularly interested in applied AI, agentic systems, intelligent automation and turning AI into useful, scalable products that address real business needs.',
-  availability: 'Open to AI engineering opportunities',
+  about:
+    "I'm a Computer Science graduate specialising in Artificial Intelligence from NED University of Engineering & Technology. I build practical AI products: integrating models from OpenAI, Gemini and DeepSeek, fine-tuning with LoRA and QLoRA, and designing conversational systems people can actually talk to. I'm most interested in applied AI, agentic systems and turning AI into products that solve real business problems.",
+  availability: 'Open to AI engineering roles',
   socials: [
     { label: 'GitHub', href: 'https://github.com/SyedAnasAhmed2004' },
     // TODO: replace with your LinkedIn profile URL
     { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
     { label: 'Email', href: 'mailto:anas.ahd85@gmail.com' },
   ],
-  stats: [
-    { value: '3.58', label: 'CGPA · BS Computer Science (AI)' },
-    { value: '3rd', label: 'Runner-up, Koderz Kombat · 200+ teams' },
-    { value: '3', label: 'LLM providers integrated in production' },
-  ],
-  skills: [
+  // TODO: add your resume PDF to frontend/public/ and set this, e.g. '/Syed_Anas_Ahmed_Resume.pdf'
+  resumeUrl: undefined,
+  services: [
     {
-      category: 'LLMs & Generative AI',
-      items: [
-        'OpenAI',
-        'Google Gemini',
-        'DeepSeek',
-        'Fine-tuning',
-        'LoRA / QLoRA',
-        'Hugging Face',
-        'LangChain',
-        'LangGraph',
-        'Conversational AI',
-      ],
+      title: 'LLM engineering',
+      tagline: 'Integrating and adapting large language models',
+      description:
+        'Multi-LLM integrations with OpenAI, Gemini and DeepSeek, fine-tuning with LoRA and QLoRA for domain adaptation, batching pipelines for performance, and conversational AI up to real-time speech-to-speech.',
+      tools: ['OpenAI', 'Gemini', 'DeepSeek', 'LoRA / QLoRA', 'LangChain', 'LangGraph'],
     },
     {
-      category: 'Machine & Deep Learning',
-      items: ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-Learn', 'LightGBM', 'SHAP', 'LIME'],
+      title: 'AI products',
+      tagline: 'End-to-end applications built around AI',
+      description:
+        'React frontends with Django, Flask and FastAPI backends, backed by PostgreSQL, Redis and Milvus for data and retrieval, and shipped end to end from prototype to deployment.',
+      tools: ['React', 'FastAPI', 'Django', 'Flask', 'PostgreSQL', 'Milvus'],
     },
     {
-      category: 'Web Development',
-      items: ['React', 'FastAPI', 'Django', 'Flask', 'Streamlit'],
-    },
-    {
-      category: 'Databases',
-      items: ['PostgreSQL', 'MySQL', 'Redis', 'Milvus'],
-    },
-    {
-      category: 'Data Analysis & Visualization',
-      items: ['Pandas', 'Matplotlib', 'Seaborn', 'MS Office'],
-    },
-    {
-      category: 'Languages & Tools',
-      items: ['Python', 'C/C++', 'Java', 'Prolog', 'Git', 'GitHub', 'GitLab'],
+      title: 'Machine learning',
+      tagline: 'Predictive models you can explain',
+      description:
+        'Models in PyTorch, TensorFlow and scikit-learn, from LightGBM prediction systems to deep learning, with SHAP and LIME to make their decisions transparent.',
+      tools: ['PyTorch', 'TensorFlow', 'Scikit-Learn', 'LightGBM', 'SHAP', 'LIME'],
     },
   ],
-  experience: [
+  timeline: [
     {
-      role: 'AI Graduate Trainee Officer',
-      company: 'EOcean',
-      period: 'Mar 2025 — Sep 2025',
-      summary: 'Built and shipped AI-powered products end to end in Karachi, Sindh.',
-      highlights: [
-        'Fine-tuned OpenAI models on their platform and explored LoRA and QLoRA techniques for domain adaptation.',
-        'Engineered and deployed end-to-end products with React frontends and Django/Flask backends, implementing multi-LLM integrations (OpenAI, Gemini, DeepSeek) and batching pipelines for optimized performance.',
-        'Built a speech-to-speech conversational chatbot leveraging NLP tokenization and real-time communication workflows.',
-      ],
+      year: '2025',
+      title: 'AI Graduate Trainee Officer',
+      organization: 'EOcean',
+      description:
+        'Fine-tuned OpenAI models and explored LoRA and QLoRA for domain adaptation. Engineered and deployed end-to-end products with React frontends and Django/Flask backends, with multi-LLM integrations (OpenAI, Gemini, DeepSeek) and batching pipelines. Built a speech-to-speech conversational chatbot.',
+    },
+    {
+      year: '2022',
+      title: 'BS Computer Science (Artificial Intelligence)',
+      organization: 'NED University of Engineering & Technology',
+      description:
+        'Graduated with a CGPA of 3.58. Placed 3rd runner-up in the Koderz Kombat coding competition among 200+ teams. Coursework in algorithms, system analysis and design, machine learning and deep learning.',
+    },
+    {
+      year: '2020',
+      title: 'HSSC, Pre-Engineering',
+      organization: 'Adamjee Govt. Science College',
+      description: 'A-1 grade, with strong results in mathematics and science.',
     },
   ],
   projects: [
     {
       title: 'Real-Time Market Intelligence System',
+      category: 'Final year project',
       summary:
-        'Final year project: an AI-powered strategic intelligence platform that automates competitive monitoring, market-signal detection and source-cited insight generation for real-time decision-making.',
-      tags: ['LLMs', 'Agents', 'Final Year Project'],
+        'An AI-powered strategic intelligence platform that automates competitive monitoring, market-signal detection and source-cited insight generation for real-time decisions.',
+      tools: ['LLMs', 'Monitoring', 'Cited insights'],
+      visual: 'market',
     },
     {
       title: 'Chess with AI',
+      category: 'Algorithms / Game AI',
       summary:
-        'A feature-rich chess application built on core data structures and algorithms, with a Minimax + Alpha-Beta pruning opponent and full rule support including castling, en passant and promotion.',
-      tags: ['Algorithms', 'DSA', 'Game AI'],
+        'A full chess application built on core data structures and algorithms, with a Minimax and Alpha-Beta pruning opponent and castling, en passant and promotion.',
+      tools: ['Minimax', 'Alpha-Beta', 'BFS / DFS'],
+      visual: 'chess',
     },
     {
-      title: 'AI-Powered Urban Traffic Congestion System',
+      title: 'Urban Traffic Congestion Prediction',
+      category: 'Machine learning / Geospatial',
       summary:
-        'Traffic congestion prediction with an LGBM classifier on historical traffic and weather data, enriched with real-time meteorological and geospatial APIs and explained with LIME and SHAP.',
-      tags: ['Machine Learning', 'Geospatial', 'Explainable AI'],
+        'Congestion prediction with an LGBM classifier on historical traffic and weather data, enriched with live meteorological and geospatial APIs and explained with LIME and SHAP.',
+      tools: ['LightGBM', 'SHAP', 'LIME'],
+      visual: 'traffic',
     },
   ],
-  education: [
-    {
-      institution: 'NED University of Engineering & Technology',
-      credential: 'BS Computer Science (Artificial Intelligence) · CGPA 3.58',
-      period: 'Oct 2022 — Jul 2026',
-      details: [
-        'Secured 3rd Runner-Up in the Koderz Kombat coding competition among 200+ teams.',
-        'Relevant courses: Design and Analysis of Algorithms, System Analysis and Design, Machine Learning, Deep Learning.',
-      ],
-    },
-    {
-      institution: 'Adamjee Govt. Science College',
-      credential: 'HSSC, Pre-Engineering · A-1 Grade',
-      period: 'Jun 2020 — Jul 2022',
-      details: ['Strong academic performance in Mathematics and Science.'],
-    },
-    {
-      institution: 'Happy Home High School',
-      credential: 'SSC, Science · A-One Grade',
-      period: 'Apr 2008 — May 2020',
-      details: ['Strong academic performance in Mathematics and Computer.'],
-    },
+  techStack: [
+    'Python',
+    'C++',
+    'Java',
+    'Prolog',
+    'PyTorch',
+    'TensorFlow',
+    'Keras',
+    'Scikit-Learn',
+    'Hugging Face',
+    'LangChain',
+    'LangGraph',
+    'OpenAI',
+    'Gemini',
+    'DeepSeek',
+    'React',
+    'FastAPI',
+    'Django',
+    'Flask',
+    'Streamlit',
+    'PostgreSQL',
+    'MySQL',
+    'Redis',
+    'Milvus',
+    'Pandas',
+    'Matplotlib',
+    'Git',
+    'GitHub',
+    'GitLab',
   ],
 }

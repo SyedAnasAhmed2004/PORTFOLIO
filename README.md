@@ -13,7 +13,7 @@ A 3D portfolio with an AI chatbot (RAG, in progress) and a conversational agent 
 
 | Route      | Page                                         |
 | ---------- | -------------------------------------------- |
-| `/`        | Profile — hero, about, skills, experience, projects, education |
+| `/`        | Profile — hero, about, what I do, career timeline, work, tech stack |
 | `/chat`    | Portfolio chatbot (RAG backend coming)        |
 | `/agent`   | Reserved for the conversational AI agent      |
 | `/contact` | Contact form (emails via Resend)              |
@@ -41,9 +41,9 @@ backend/
 frontend/src/
   app/                  # App root and router
   components/
-    layout/             # RootLayout, Navbar, Footer, PageTransition
-    three/              # WebGL scene: NeuralCore shader, particles, per-route variants
-    ui/                 # Button, TiltCard, Reveal, FormField, SectionHeading
+    layout/             # RootLayout, SiteHeader, SocialRail, Footer, PageTransition
+    three/              # WebGL scene: procedural Robot, per-page scroll choreography
+    ui/                 # Button, Panel, Reveal, FormField, CursorDot, Icons
   features/             # Feature modules: home, chat, agent, contact
   pages/                # Route components (lazy-loaded)
   services/api/         # HTTP client and typed API modules
@@ -90,8 +90,16 @@ cd frontend; npm run typecheck; npm run lint; npm run build
 
 ## Editing your content
 
-Everything personal (name, summary, skills, experience, projects, education, links) is in
-[`frontend/src/data/profile.ts`](frontend/src/data/profile.ts).
+Everything personal (name, about, services, timeline, projects, tech stack, links) is in
+[`frontend/src/data/profile.ts`](frontend/src/data/profile.ts). To show the Resume link, put
+your PDF in `frontend/public/` and set `resumeUrl`.
+
+### Performance notes
+
+The robot is built from code (no model download) and rendered without post-processing or
+shadows. The canvas stops rendering entirely when the robot is off screen (after the first
+three home sections, and on phones outside the hero). Glows are CSS gradients, and scroll
+effects only animate `transform` and `opacity`.
 
 ## Deploying to Vercel (free tier)
 

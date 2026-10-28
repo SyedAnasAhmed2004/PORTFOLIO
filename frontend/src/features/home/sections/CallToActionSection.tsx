@@ -4,19 +4,17 @@ import { ROUTES } from '@/constants/routes'
 
 export function CallToActionSection() {
   return (
-    <section className="container-page py-32 text-center sm:py-40">
-      <Reveal>
-        <p className="eyebrow mb-6">Curious?</p>
-        <h2 className="mx-auto max-w-3xl text-5xl leading-[1] font-light tracking-tight sm:text-7xl">
-          Don&apos;t read about me — <span className="font-display text-gradient italic">ask</span>.
-        </h2>
-        <p className="mx-auto mt-6 max-w-md text-muted">
-          My AI assistant is trained on my work, projects and experience.
+    <section className="page-container pt-28">
+      <Reveal className="flex flex-col items-center text-center">
+        <p className="max-w-xl text-2xl font-light text-fg/90 sm:text-3xl">
+          Curious about something specific? Ask my AI, or reach out directly.
         </p>
-        <div className="mt-10 flex justify-center gap-3">
-          <ButtonLink to={ROUTES.chat}>Start a conversation</ButtonLink>
-          <ButtonLink to={ROUTES.contact} variant="ghost">
-            Contact
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <ButtonLink to={ROUTES.chat} variant="secondary">
+            Chat with my AI
+          </ButtonLink>
+          <ButtonLink to={ROUTES.contact} robotAttention>
+            Hire me
           </ButtonLink>
         </div>
       </Reveal>

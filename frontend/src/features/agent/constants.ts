@@ -1,14 +1,14 @@
-export const AGENT_CAPABILITIES = [
+export const PLANNED_CAPABILITIES = [
   {
     title: 'Real-time voice',
-    description: 'Speak naturally — streaming speech recognition and low-latency synthesis.',
+    description: 'Talk to it out loud and hear spoken answers with low latency.',
   },
   {
     title: 'Tool use',
-    description: 'Books meetings, fetches project details and answers with live data.',
+    description: 'Look up project details and book a call without leaving the conversation.',
   },
   {
     title: 'Memory',
-    description: 'Keeps context across the conversation for coherent multi-turn dialogue.',
+    description: 'Keep track of what you have already asked within a conversation.',
   },
 ] as const

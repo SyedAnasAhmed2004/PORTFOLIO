@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from 'react'
 import { cn } from '@/lib/cn'
 
 const CONTROL_CLASSES =
-  'w-full rounded-xl border bg-ink-950/50 px-4 py-3.5 text-[15px] transition-colors placeholder:text-muted/60 focus:border-white/30 focus:outline-none'
+  'w-full rounded-md border bg-white/[0.03] px-4 py-3 text-[15px] transition-colors placeholder:text-muted/60 focus:border-fg/50 focus:outline-none'
 
 interface FieldShellProps {
   id: string
@@ -15,7 +15,7 @@ interface FieldShellProps {
 function FieldShell({ id, label, error, children }: FieldShellProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="eyebrow">
+      <label htmlFor={id} className="text-sm text-muted">
         {label}
       </label>
       {children}
@@ -37,7 +37,7 @@ export function InputField({ id, label, error, className, ...props }: InputField
         id={id}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={cn(CONTROL_CLASSES, error ? 'border-danger/60' : 'border-line', className)}
+        className={cn(CONTROL_CLASSES, error ? 'border-danger/70' : 'border-line', className)}
         {...props}
       />
     </FieldShell>
@@ -53,7 +53,7 @@ export function TextAreaField({ id, label, error, className, ...props }: TextAre
         id={id}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={cn(CONTROL_CLASSES, 'resize-none', error ? 'border-danger/60' : 'border-line', className)}
+        className={cn(CONTROL_CLASSES, 'resize-none', error ? 'border-danger/70' : 'border-line', className)}
         {...props}
       />
     </FieldShell>

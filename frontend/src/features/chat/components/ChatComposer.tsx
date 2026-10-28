@@ -31,7 +31,7 @@ export function ChatComposer({ disabled, onSend }: ChatComposerProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-end gap-2 rounded-2xl border border-line bg-ink-950/60 p-2 transition-colors focus-within:border-white/20"
+      className="flex items-end gap-2 rounded-md border border-line bg-white/[0.03] p-1.5 transition-colors focus-within:border-fg/40"
     >
       <label htmlFor="chat-input" className="sr-only">
         Message
@@ -43,18 +43,27 @@ export function ChatComposer({ disabled, onSend }: ChatComposerProps) {
         onKeyDown={handleKeyDown}
         maxLength={MAX_MESSAGE_LENGTH}
         rows={1}
-        placeholder="Ask anything about my work…"
-        className="field-sizing-content max-h-40 min-h-11 flex-1 resize-none bg-transparent px-3 py-2.5 text-[15px] placeholder:text-muted focus:outline-none"
+        placeholder="Ask about my projects, skills or experience"
+        className="field-sizing-content max-h-40 min-h-11 flex-1 resize-none bg-transparent px-3 py-2.5 text-[15px] placeholder:text-muted/70 focus:outline-none"
       />
       <button
         type="submit"
         disabled={disabled || !draft.trim()}
         aria-label="Send message"
-        className="grid size-11 shrink-0 place-items-center rounded-xl bg-fg text-ink-950 transition-all hover:bg-accent disabled:opacity-30"
+        data-robot-attention
+        className="group shrink-0 outline-offset-2 disabled:opacity-30"
       >
-        <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2">
-          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <span className="grid size-11 place-items-center rounded-md bg-fg text-void transition-colors group-hover:bg-white">
+          <svg
+            viewBox="0 0 24 24"
+            className="size-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="square" />
+          </svg>
+        </span>
       </button>
     </form>
   )

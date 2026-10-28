@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { profile } from '@/data/profile'
 
-const BASE_TITLE = `${profile.name} — ${profile.role}`
+const BASE_TITLE = `${profile.name} — AI Engineer`
 
 export function usePageTitle(pageTitle?: string) {
   useEffect(() => {

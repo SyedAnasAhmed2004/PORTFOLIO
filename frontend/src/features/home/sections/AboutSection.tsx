@@ -1,37 +1,20 @@
 import { Reveal } from '@/components/ui/Reveal'
-import { SectionHeading } from '@/components/ui/SectionHeading'
 import { profile } from '@/data/profile'
 
 export function AboutSection() {
   return (
-    <section id="about" className="container-page py-24 sm:py-32">
-      <SectionHeading
-        index="01"
-        eyebrow="About"
-        title={
-          <>
-            Research-minded, <span className="font-display italic">production</span>-driven.
-          </>
-        }
-      />
-
-      <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-        <Reveal>
-          <p className="text-xl leading-relaxed text-fg/85 sm:text-2xl">{profile.summary}</p>
-          <p className="mt-6 font-mono text-sm text-muted">
-            {profile.location} — {profile.availability}
+    <section id="about" className="flex min-h-dvh items-center py-24">
+      <div className="page-container grid lg:grid-cols-2">
+        <Reveal className="lg:col-start-2">
+          <h2 className="label">About me</h2>
+          <p className="mt-6 text-2xl leading-snug font-light text-fg/90 sm:text-[1.7rem]">
+            {profile.about}
+          </p>
+          <p className="mt-8 flex items-center gap-3 text-sm text-muted">
+            <span className="size-2 animate-pulse rounded-full bg-amber" />
+            {profile.availability}
           </p>
         </Reveal>
-
-        <dl className="grid grid-cols-3 gap-4 self-end lg:grid-cols-1">
-          {profile.stats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.1} className="border-t border-line pt-4">
-              <dt className="sr-only">{stat.label}</dt>
-              <dd className="font-display text-5xl sm:text-6xl">{stat.value}</dd>
-              <dd className="mt-1 text-sm text-muted">{stat.label}</dd>
-            </Reveal>
-          ))}
-        </dl>
       </div>
     </section>
   )

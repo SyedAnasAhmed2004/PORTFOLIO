@@ -32,9 +32,9 @@ export function useContactForm() {
 
     setStatus('submitting')
     try {
-      const response = await contactApi.submit(values)
+      await contactApi.submit(values)
       setStatus('success')
-      setFeedback(response.message)
+      setFeedback(`Message sent. I'll reply to ${values.email.trim()} soon.`)
       setValues(INITIAL_VALUES)
     } catch (err) {
       setStatus('error')

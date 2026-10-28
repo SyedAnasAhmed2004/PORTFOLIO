@@ -1,52 +1,41 @@
 import { ButtonLink } from '@/components/ui/Button'
-import { Reveal } from '@/components/ui/Reveal'
-import { TiltCard } from '@/components/ui/TiltCard'
 import { ROUTES } from '@/constants/routes'
-import { VoiceWaveform } from '@/features/agent/components/VoiceWaveform'
-import { AGENT_CAPABILITIES } from '@/features/agent/constants'
+import { PLANNED_CAPABILITIES } from '@/features/agent/constants'
 import { usePageTitle } from '@/hooks/usePageTitle'
 
 export default function AgentPage() {
-  usePageTitle('Conversational Agent')
+  usePageTitle('Voice agent')
 
+  // On desktop the robot stands on the right; content sits on the left.
   return (
-    <section className="container-page flex min-h-dvh flex-col justify-center pt-32 pb-16 text-center">
-      <Reveal>
-        <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
-          <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-          In development
-        </span>
-        <h1 className="mx-auto mt-8 max-w-4xl text-5xl leading-[0.95] font-light tracking-tight sm:text-7xl">
-          A <span className="font-display text-gradient italic">conversational</span> agent that
-          talks back.
-        </h1>
-        <p className="mx-auto mt-6 max-w-lg leading-relaxed text-muted">
-          I&apos;m building a voice-first AI agent you can talk to about my work. It will live
-          here soon.
-        </p>
-      </Reveal>
+    <section className="flex min-h-dvh flex-col justify-center px-6 pt-28 pb-16 sm:px-12 lg:w-[55%] lg:pl-28">
+      <p className="flex items-center gap-3 text-sm text-amber">
+        <span className="size-2 animate-pulse rounded-full bg-amber" />
+        In development
+      </p>
+      <h1 className="mt-5 max-w-xl text-5xl leading-[1.05] font-light uppercase sm:text-6xl">
+        A voice agent you can talk to
+      </h1>
+      <p className="mt-6 max-w-lg leading-relaxed text-muted">
+        I&apos;m building a voice-first agent that answers questions about my work. It builds on
+        the speech-to-speech chatbot I developed at EOcean.
+      </p>
 
-      <Reveal delay={0.15} className="my-14">
-        <VoiceWaveform />
-      </Reveal>
-
-      <div className="grid gap-5 text-left md:grid-cols-3">
-        {AGENT_CAPABILITIES.map((capability, index) => (
-          <Reveal key={capability.title} delay={0.2 + index * 0.08}>
-            <TiltCard className="p-7">
-              <span className="font-mono text-xs text-muted">0{index + 1}</span>
-              <h2 className="mt-8 text-xl font-medium">{capability.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{capability.description}</p>
-            </TiltCard>
-          </Reveal>
+      <h2 className="label mt-14">What it will do</h2>
+      <ul className="mt-4 max-w-xl border-t border-line">
+        {PLANNED_CAPABILITIES.map((capability) => (
+          <li key={capability.title} className="border-b border-line py-5">
+            <h3 className="text-lg font-medium">{capability.title}</h3>
+            <p className="mt-1 text-muted">{capability.description}</p>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <Reveal delay={0.4} className="mt-14">
-        <ButtonLink to={ROUTES.chat} variant="ghost">
-          Try the text assistant meanwhile →
+      <div className="mt-10">
+        <ButtonLink to={ROUTES.chat} variant="secondary">
+          Use the text chat for now
         </ButtonLink>
-      </Reveal>
+      </div>
     </section>
   )
 }
