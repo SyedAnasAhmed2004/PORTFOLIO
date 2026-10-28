@@ -40,6 +40,21 @@ class Settings(BaseSettings):
     contact_from_email: str = "Portfolio <onboarding@resend.dev>"
     contact_to_email: str | None = None
 
+    # Dashboard-pasted values often carry stray whitespace, quotes or capitalisation.
+    @field_validator("environment", mode="before")
+    @classmethod
+    def _normalize_environment(cls, value: object) -> object:
+        if isinstance(value, str):
+            return value.strip().strip("\"'").strip().lower() or "development"
+        return value
+
+    @field_validator("database_url_override", mode="before")
+    @classmethod
+    def _strip_database_url(cls, value: object) -> object:
+        if isinstance(value, str):
+            return value.strip().strip("\"'").strip() or None
+        return value
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def _split_origins(cls, value: object) -> object:
